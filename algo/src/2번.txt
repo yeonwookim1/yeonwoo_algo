@@ -1,0 +1,62 @@
+2번
+def solution(s,times):
+    answer=[]
+    slist=list(map(int,s.split(':')))
+    timestamp=[]
+    timestamp.append(slist[2])
+
+    #times=["01:06:30:00","01:01:12:00","00:00:09:25"]
+
+    for time in times:
+        hist=list(map(int,time.split(':')))
+        
+        sec=hist[3]+slist[5]
+        if sec>=60:
+            sec-=60
+            slist[4]+=1
+
+        mint=hist[2]+slist[4]
+        if mint>=60:
+            mint-=60
+            slist[3]+=1
+
+        hour=hist[1]+slist[3]
+        if hour>=24:
+            hour-=24
+            slist[2]+=1
+
+        day=hist[0]+slist[2]
+        if day>30:
+            day-=30
+            slist[1]+=1
+            
+        month=slist[1]
+        if month>12:
+            month-=12
+            slist[0]+=1
+        year=slist[0]
+
+        slist[0]=year
+        slist[1]=month
+        slist[2]=day
+        slist[3]=hour
+        slist[4]=mint
+        slist[5]=sec
+        
+        if slist[2] not in timestamp:
+            timestamp.append(slist[2])
+    print(timestamp)
+    hold=timestamp[-1]-timestamp[0]+1
+    onecnt=len(timestamp)
+    if hold==onecnt:
+        answer.append(1)
+    else:
+        answer.append(0)
+    answer.append(hold)
+    return answer
+
+
+s="2021:04:12:16:08:35"
+times=["01:06:30:00","01:01:12:00","00:00:09:25"]
+
+print(solution(s, times))
