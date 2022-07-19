@@ -48,7 +48,6 @@ public class Solution24 {class Point{
         for(int i=0; i<files.length; i++){
             list.add(cal(files[i],i));
         }
-
         Collections.sort(list, new Comparator<Point>(){
 
             @Override
