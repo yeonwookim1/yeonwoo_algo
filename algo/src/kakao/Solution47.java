@@ -2,6 +2,8 @@ package kakao;
 
 import java.util.*;
 
+//https://school.programmers.co.kr/learn/courses/30/lessons/1836
+//리틀프렌즈사천성
 public class Solution47 {
     class Point{
         int x;
