@@ -77,52 +77,14 @@ public class Solution47 {
         board[map.get(c)[1][0]][map.get(c)[1][1]] = '.';
     }
 
-    boolean check(char c){
+    boolean canDelete(char c){
         int r1 = map.get(c)[0][0];
         int c1 = map.get(c)[0][1];
         int r2 = map.get(c)[1][0];
         int c2 = map.get(c)[1][1];
-        if(c1<c2){
-            if(calCheck(c1,c2,r1,c) && rowCheck(r1,r2,c2,c)){
-                return true;
-            }
-            if(calCheck(c1,c2,r2,c) && rowCheck(r1,r2,c1,c)){
-                return true;
-            }
-        }else {
-            if(calCheck(c2,c1,r1,c) && rowCheck(r1,r2,c2,c)){
-                return true;
-            }
-            if(calCheck(c2,c1,r2,c) && rowCheck(r1,r2,c1,c)){
-                return true;
-            }
-        }
-        return false;
-    }
-    boolean calCheck(int c1, int c2, int r, char c){
-        for(int i=c1; i<=c2;i++){
-            if(board[r][i] != '.' && board[r][i] != c){
-                return false;
-            }
-        }
-        return true;
-    }
-    boolean rowCheck(int r1, int r2, int c1, char c){
-        for(int i=r1; i<=r2;i++){
-            if(board[i][c1] != '.' && board[i][c1] != c){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    boolean canDelete(char c){
-        int r1 = map.get(c)[0][0];
-        int c1 = map.get(c)[0][1];
-
+        
         Queue<Point> q = new LinkedList<>();
-        int visitMap[][] = new int[m][n];
-        visitMap[r1][c1]=1;
+        
         q.add(new Point(r1,c1,-1,0));
 
         while(!q.isEmpty()){
@@ -143,16 +105,18 @@ public class Solution47 {
                 if(dir!= ddir){
                     ddirCnt++;
                 }
-                if(ddirCnt>2) {
+                if(ddirCnt>2){
                     continue;
                 }
 
-                if(visitMap[xx][yy] == 0 && board[xx][yy] == '.'){
+                if(board[xx][yy] == '.'){
                     q.add(new Point(xx, yy, ddir, ddirCnt));
-                    visitMap[xx][yy]=1;
-                }
-                if(visitMap[xx][yy] == 0 &&board[xx][yy] == c){
-                    return true;
+                }else if(board[xx][yy] == '*'){
+                    continue;
+                }else{
+                    if(xx == r2 && yy==c2){
+                        return true;
+                    }
                 }
             }
         }
