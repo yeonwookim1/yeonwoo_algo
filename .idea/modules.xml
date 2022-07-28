@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/algo.iml" filepath="$PROJECT_DIR$/algo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algo/algo1.iml" filepath="$PROJECT_DIR$/algo/algo1.iml" />
     </modules>
   </component>
 </project>
