@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 //https://school.programmers.co.kr/learn/courses/30/lessons/12985?language=java
 //예상 대진표
+//num 은 싸움 번호
+//name은 고유값, group은 그룹넘버
 public class Solution49 {
 
     class Group{

@@ -2,6 +2,8 @@ package programmers;
 
 import java.util.*;
 
+//https://school.programmers.co.kr/learn/courses/30/lessons/12980
+//점프와 순간이동
 //+1칸은 건전지 비용 +1
 //기존칸 *2로 이동하면 건전지 비용X
 //n=5 answer = 5
