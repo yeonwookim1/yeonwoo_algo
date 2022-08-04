@@ -20,24 +20,23 @@ public class Solution63 {
         }
 
         int start =0,end =0;
-        int temp =0;
+        int sum = 0;
         int ans = 0;
-        while(end<N){
-            System.out.println(temp);
-            if(temp >= M){
-                temp -= arr[start];
-                start++;
-            }else if(end >=N){
-                break;
-            } else{
-                temp += arr[end];
+        while(end<=N){
+            if(sum <M){ //end는 인덱스를 넘어섰지만, start가 아직 남아서 sum을 체크해야될 수 있다.
+                if(end >=N){
+                    break;
+                }
+                sum += arr[end];
                 end++;
+            }else{
+                sum -= arr[start];
+                start++;
             }
 
-            if(temp==M){
+            if(sum == M){
                 ans++;
             }
-
 
         }
         System.out.println(ans);
