@@ -1,15 +1,13 @@
-package backjoon;
+package twopoint;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-//https://www.acmicpc.net/problem/1806
-//1806 부분합
-public class Solution64 {
-
+//https://www.acmicpc.net/problem/2003
+//2003 수들의합 2
+public class Solution63 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader((new InputStreamReader(System.in)));
         StringTokenizer st = null;
@@ -22,29 +20,27 @@ public class Solution64 {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        int ans = Integer.MAX_VALUE;
 
-        int start = 0;
-        int end =0;
+        int start =0,end =0;
         int sum = 0;
+        int ans = 0;
         while(end<=N){
-            if(sum>=M){
-                ans = Math.min(ans, end - start);
-                sum -= arr[start];
-                start++;
-//                ans = Math.min(ans, end - start +1);
-            } else{
-                if(end>=N){
+            if(sum <M){ //end는 인덱스를 넘어섰지만, start가 아직 남아서 sum을 체크해야될 수 있다.
+                if(end >=N){
                     break;
                 }
                 sum += arr[end];
                 end++;
+            }else{
+                sum -= arr[start];
+                start++;
             }
-        }
-        if(ans == Integer.MAX_VALUE){
-            ans = 0;
+
+            if(sum == M){
+                ans++;
+            }
+
         }
         System.out.println(ans);
-
     }
 }
