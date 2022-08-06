@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-//https://www.acmicpc.net/problem/2776
-//암기왕
+//https://www.acmicpc.net/problem/2003
+//수들의합2
 public class Solution66 {
 
     public static void main(String[] args) throws IOException {
