@@ -24,7 +24,7 @@ public class Solution30 {
         arr = intList.stream().mapToInt(m->m).toArray();
         intList = Arrays.stream(arr).boxed().collect(Collectors.toList());
 
-        Collections.sort(intList, new Comparator<>(){
+        Collections.sort(intList, new Comparator<>(){    //java8 : new Comparator<Integer>
             @Override
             public int compare(Integer a, Integer b){
                 return a - b;
@@ -32,7 +32,7 @@ public class Solution30 {
         });
 
         String arrSort[] = {};
-        Arrays.sort(arrSort, new Comparator<>(){
+        Arrays.sort(arrSort, new Comparator<>(){        //java8 : new Comparator<String>
             @Override
             public int compare(String o1, String o2) {
                 return 0;
