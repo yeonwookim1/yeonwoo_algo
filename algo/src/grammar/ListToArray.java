@@ -19,6 +19,8 @@ public class ListToArray {
         strList = Arrays.stream(strArr).collect(Collectors.toList());
 
 
+        list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        arr = list.stream().mapToInt(m->m).toArray();
 
         String strArr2[] = {};
         strArr2 = strList.stream().toArray(String[]::new);
@@ -26,6 +28,9 @@ public class ListToArray {
         int arr2[] ={};
         arr2 = list.stream().mapToInt(a->a).toArray();
 
+
+        strArr2 = strList.stream().toArray(String[]::new);
+        strList = Arrays.stream(strArr2).collect(Collectors.toList());
 
     }
 }
