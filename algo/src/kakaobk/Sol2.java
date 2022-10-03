@@ -1,4 +1,4 @@
-package kakaobank;
+package kakaobk;
 
 public class Sol2 {
 
@@ -50,7 +50,7 @@ public class Sol2 {
                     if(money[j] == 0){
                         continue;
                     }
-                    if(money[i] + money[j] <= 0) {  //더 빼야되는 경우
+                    if(money[i] + money[j] <= 0) {  //입금내역(money[j]가 남지 않는 경우
                         int tempDays = cal(date[j], date[i], dates);
 //                        System.out.println("tempDays = " + tempDays);
                         double d = (double)tempDays / (double)365;
@@ -58,7 +58,7 @@ public class Sol2 {
                         System.out.println("answer = " + money[j] * (rol[j] * 0.01) * d);
                         money[i] += money[j];
                         money[j] = 0;
-                    } else {                        //마지막으로 빼는 경우
+                    } else {                        //입금내역(money[j]가 남는 경우
                         money[j] += money[i];
                         money[i] *= -1;
                         int tempDays = cal(date[j], date[i], dates);

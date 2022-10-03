@@ -1,4 +1,4 @@
-package kakaobank;
+package kakaobk;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,6 +41,7 @@ public class Sol3 {
             map.get(links[i][0]).setChildOne(links[i][1]);  //부모에 자식 추가
             map.get(links[i][1]).setParent(links[i][0]);    //자식한테 부모 추가
         }
+
         int topNode = 0;
         for(int i=1; i<visit.length; i++){
             if(visit[i]==0){
@@ -87,7 +88,6 @@ public class Sol3 {
     }
 
     public static void main(String[] args) {
-
         Sol3 sol3 = new Sol3();
         int c[] = {300,550,350,500,100,150,100}; //,750,800
         int li[][] = {{3,7},{1,5},{4,1},{3,2},{3,6},{4,3}}; //{4,8},{8,9}

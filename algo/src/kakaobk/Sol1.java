@@ -1,4 +1,4 @@
-package kakaobank;
+package kakaobk;
 
 public class Sol1 {
     int color;

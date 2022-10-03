@@ -1,9 +1,7 @@
-package kakaobank;
+package kakaobk;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 
 public class Sol4 {
 
@@ -16,6 +14,39 @@ public class Sol4 {
             this.y = y;
         }
     }
+
+    public long solution1(int[] height, int[] width) {
+        long answer = -1;
+        Point[] h = new Point[height.length];
+        for(int i=0; i<height.length; i++){
+            h[i] = new Point(height[i],i);
+        }
+        Arrays.sort(h, new Comparator<Point>() {
+            @Override
+            public int compare(Point o1, Point o2) {
+                return o2.x - o1.x;
+            }
+        });
+
+        for(Point p : h){
+            System.out.println("p.x = " + p.x);
+            System.out.println("width[p.y] = " + width[p.y]);
+        }
+
+        long totalLen = 0;
+
+        for(int i=0; i<h.length; i++){
+            totalLen += width[h[i].y];
+            long size = h[i].x * totalLen;
+            if(size > answer){
+                answer = (long) size;
+            }
+        }
+
+        System.out.println("answer = " + answer);
+        return answer;
+    }
+
     public long solution(int[] height, int[] width) {
         long answer = -1;
         long[][] books = new long[height.length+1][width.length+1];
@@ -89,11 +120,11 @@ public class Sol4 {
         int h1[] = new int[400000];
         int w1[] = new int[400000];
 
-        sol4.solution(h1,w1);
-
+//        sol4.solution(h1,w1);
 
         int h[] = {140,21,21,32};
         int w[] = {2,1,3,7};
         sol4.solution(h,w);
+        sol4.solution1(h,w);
     }
 }
